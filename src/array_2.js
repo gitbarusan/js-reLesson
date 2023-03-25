@@ -37,3 +37,42 @@ console.log(Tokyo); //東京
 console.log(Chiba); //千葉
 console.log(Kanagawa); //神奈川
 console.log(cities); //["さいたま", "群馬"]
+
+const arrNum2 = [2, 4, 6, 8];
+
+arrNum2.forEach((val, i) => {
+  console.log("val:" + val);
+  console.log("index:" + i);
+});
+/**
+ * val:2 index:0
+ * val:4 index:1
+ * val:6 index:2
+ * val:8 index:3
+ */
+
+const arrNum3 = arrNum2.map((val) => {
+  return val * val;
+});
+console.log(arrNum3);
+//[4, 16, 36, 64]
+
+//元の配列は影響を受けない
+console.log(arrNum2);
+//[2, 4, 6, 8]
+
+const arrNum4 = [3, 5, 7, 9, 15];
+
+//コールバック関数で順番に処理をして条件に合うもの戻り値から新たな配列を作る
+const arrNum5 = arrNum4.filter((val) => {
+  return val % 3 === 0;
+});
+console.log(arrNum5);
+//[3, 9, 15]
+
+const arrNum6 = [9, 12, 15, 18];
+const arrNum6_result = arrNum6.find((val) => {
+  return val % 3 === 0;
+});
+console.log(arrNum6_result); //9
+//条件に一致する要素を見つけた時点で処理は停止
