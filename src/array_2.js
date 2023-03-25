@@ -71,8 +71,13 @@ console.log(arrNum5);
 //[3, 9, 15]
 
 const arrNum6 = [9, 12, 15, 18];
-const arrNum6_result = arrNum6.find((val) => {
+const arrNum6_find = arrNum6.find((val) => {
   return val % 3 === 0;
 });
-console.log(arrNum6_result); //9
+console.log(arrNum6_find); //9
 //条件に一致する要素を見つけた時点で処理は停止
+
+const arrNum6_findIndex = arrNum6.findIndex((val) => {
+  return val % 3 === 0;
+});
+console.log(arrNum6_findIndex); //0
