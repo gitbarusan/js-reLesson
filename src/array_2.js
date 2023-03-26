@@ -80,4 +80,77 @@ console.log(arrNum6_find); //9
 const arrNum6_findIndex = arrNum6.findIndex((val) => {
   return val % 3 === 0;
 });
+//条件に一致するする要素が見つからなかったら-1を返す
 console.log(arrNum6_findIndex); //0
+
+const objDoraemon = [
+  {
+    id: 1,
+    name: "Takeshi",
+    gender: "men"
+  },
+  {
+    id: 2,
+    name: "Shizuka",
+    gender: "women"
+  },
+  {
+    id: 3,
+    name: "Nobita",
+    gender: "men"
+  }
+];
+
+const indexObDoraemon = objDoraemon.findIndex((obj) => {
+  return obj.name === "Shizuka";
+});
+
+if (indexObDoraemon >= 0) {
+  console.log(objDoraemon[indexObDoraemon]);
+  //{id: 2, name: "Shizuka", gender: "women"}
+} else {
+  console.log("対象の名前は存在しません");
+}
+
+//Array.every()
+//コールバック関数で処理される内容が全ての条件に一致する場合のみtrueを返す
+
+const resultEvery = arrNum6.every((val) => {
+  return val % 3 === 0;
+});
+//arrNum6 →　[9, 12, 15, 18] 全て条件に合うのでtrueが返る
+console.log(resultEvery);
+
+//Array.some
+//コールバック関数で処理される内容が1つでも条件に一致する場合のみtrueを返す
+
+const resultSome = arrNum6.some((val) => {
+  return val % 15 === 0;
+});
+
+console.log(resultSome);
+
+//Array.reduce()
+/**
+ * Array：対象となる配列
+callback：配列内の各値に対して実行される関数、4つの引数を持つ
+accumulator：現在処理されている要素よりも一つ前の要素かinitialValue、もしくは一つ前の要素で実行された関数の結果
+currentValue：現在処理されている要素
+currentIndex：現在処理されている要素のインデックス
+array：対象となっている配列
+initialValue：最初の実引数として渡される値
+
+initialValueは省略可能です。
+initialValueが指定されている場合、一番最初の関数実行時のaccumulatorにはinitialValueの値が入り、currentValueには配列の最初の値が入ります。
+initialValueが省略されている場合は、一番最初の関数実行時のaccumulatorには配列の最初の値が入り、currentValueには配列の2番目の値が入ります。
+
+また、callback関数の中のcurrentIndex、arrayも省略可能です。
+ */
+
+const arrNum7 = [0, 1, 2, 3];
+
+const resultReduce = arrNum7.reduce((accumulator, currentValue) => {
+  console.log("accumulator:" + accumulator + " currentValue:" + currentValue);
+  return accumulator + currentValue;
+});
+console.log(resultReduce);
